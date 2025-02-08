@@ -1,0 +1,67 @@
+<h3>Contact Me!!!</h3>
+<div class="multi-step-container">
+    <div class="progress-bar">
+      <!-- Progress Indicator Steps -->
+      <div class="step" [class.active]="currentStep >= 1">1</div>
+      <div class="step" [class.active]="currentStep >= 2">2</div>
+      <div class="step" [class.active]="currentStep >= 3">3</div>
+      <div class="step" [class.active]="currentStep >= 4">4</div>
+      
+      <!-- Progress Line -->
+      <div class="progress" [style.width]="getProgressWidth()"></div>
+    </div>
+  
+    <form (ngSubmit)="onSubmit()" #multiStepForm="ngForm" class="form-content">
+      <!-- Step 1: Welcome -->
+      <div *ngIf="currentStep === 1" class="form-step animate-step">
+        <h2>Welcome!</h2>
+        <p>Please fill out this form to connect with me for job opportunities or collaborations. I’ll get back to you as soon as possible!</p>
+        <button type="button" class="next-btn" (click)="nextStep()">Get Started</button>
+      </div>
+  
+      <!-- Step 2: Basic Information -->
+      <div *ngIf="currentStep === 2" class="form-step animate-step">
+        <h2>Your Information</h2>
+        <p>Let’s start with your basic information.</p>
+        <div class="form-group">
+          <label for="fullName"><i class="fas fa-user"></i></label>
+          <input type="text" id="fullName" [(ngModel)]="formData.fullName" name="fullName" placeholder="Your Full Name (So I know how to address you!)" required />
+        </div>
+        <div class="form-group">
+          <label for="email"><i class="fas fa-envelope"></i></label>
+          <input type="email" id="email" [(ngModel)]="formData.email" name="email" placeholder="Your Email" required />
+        </div>
+        <div class="form-group">
+          <label for="phone"><i class="fas fa-phone"></i></label>
+          <input type="text" id="phone" [(ngModel)]="formData.phone" name="phone" placeholder="Your Phone" />
+        </div>
+        <button type="button" class="prev-btn" (click)="prevStep()">Back</button>
+        <button type="button" class="next-btn" (click)="nextStep()">Next</button>
+      </div>
+  
+      <!-- Step 3: Personalization -->
+      <div *ngIf="currentStep === 3" class="form-step animate-step">
+        <h2>Let’s Personalize</h2>
+        <p>What’s the purpose of your message?</p>
+        <div class="form-group">
+          <label for="subject"><i class="fas fa-tag"></i></label>
+          <input type="text" id="subject" [(ngModel)]="formData.subject" name="subject" placeholder="Message Subject" />
+        </div>
+        <button type="button" class="prev-btn" (click)="prevStep()">Back</button>
+        <button type="button" class="next-btn" (click)="nextStep()">Next</button>
+      </div>
+  
+      <!-- Step 4: Message -->
+      <div *ngIf="currentStep === 4" class="form-step animate-step">
+        <h2>Message</h2>
+        <p>Please provide the details of your inquiry.</p>
+        <div class="form-group">
+          <label for="message"><i class="fas fa-comment"></i></label>
+          <textarea id="message" [(ngModel)]="formData.message" name="message" placeholder="Your Message" required></textarea>
+        </div>
+        <button type="button" class="prev-btn" (click)="prevStep()">Back</button>
+        <button type="submit" class="submit-btn">Send Message</button>
+      </div>
+    </form>
+  </div>
+  

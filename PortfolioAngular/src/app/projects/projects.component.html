@@ -1,0 +1,23 @@
+<div class="projects-container">
+  <h2>My Projects</h2>
+  <div class="projects-grid">
+    <a 
+      *ngFor="let project of projects" 
+      [href]="project.githubLink" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      [attr.aria-label]="'View GitHub Repository for ' + project.title"
+      class="project-card">
+      <div class="project-image">
+        <img [src]="project.image" alt="{{ project.title }} Image" />
+      </div>
+      <div class="project-info">
+        <h3>{{ project.title }}</h3>
+        <p>{{ project.description }}</p>
+        <div class="project-tech">
+          <span *ngFor="let tech of project.technologies">{{ tech }}</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>

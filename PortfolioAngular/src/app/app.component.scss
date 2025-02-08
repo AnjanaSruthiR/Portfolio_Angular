@@ -1,0 +1,175 @@
+header {
+    background-color: var(--nav-background);
+    // padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  
+    .header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1360px;
+      margin: 0 1rem;
+      padding: 0px 20px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: right;
+      gap: 0.2rem;
+      padding-right: 10px;
+    }
+
+    .nav-link {
+      color: var(--nav-text);
+      text-decoration: none;
+      // font-weight: bold;
+      font-size: 18px;
+      padding: 0.5rem 1rem;
+      transition: background-color 0.3s, color 0.3s;
+      border-radius: 4px;
+  
+      &:hover {
+        background-color: #ede3ff;
+        color: #713ff9;
+      }
+    }
+  }
+  
+  .contact-floating-button {
+    position: fixed;
+    bottom: 4rem;
+    left: 4rem;
+    background: radial-gradient(circle ,#e4faf5,  #f5f6e3, #bad5fd, #a3a6f5fc, #b884f8fc);
+    border: none;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: in-out-animation 1s infinite ease-in-out;
+
+    /* Hover Effect */
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 10px rgba(0, 123, 255, 0.6), 0 0 20px rgba(0, 123, 255, 0.4);
+    }
+  
+    .text-path {
+      position: absolute;
+      width: 90%;
+      height: 90%;
+      fill: none; 
+      stroke: none;
+      text {
+        font-size: 0.8rem;
+        fill: var(--contact-me-text); 
+        font-weight: bold !important;
+        letter-spacing: 2px;
+      }
+    }
+  
+    .contact-icon {
+      font-size: 1.8rem; /* Adjust icon size */
+      position: absolute;
+    }
+  }
+  
+  @keyframes in-out-animation {
+    0% {
+      transform: scale(1); /* Original size */
+    }
+    50% {
+      transform: scale(1.1); /* Slightly larger */
+    }
+    100% {
+      transform: scale(1); /* Back to original size */
+    }
+  }
+
+  main {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+
+  @media (max-width: 768px) {
+    header {
+      padding: 0.5rem; // Adjust padding for smaller screens
+      .header-flex {
+        margin: 0 auto; // Center-align content
+        padding: 0 1rem; // Reduce padding for smaller width
+  
+        h2 {
+          font-size: 1.2rem; // Reduce font size for the title
+          text-align: center;
+        }
+  
+        .hamburger {
+          display: flex; 
+          flex-direction: column;
+          gap: 5px;
+          cursor: pointer;
+          span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--nav-text);
+            transition: transform 0.3s;
+          }
+        }
+      }
+  
+      nav {
+        display: none; // Hide the nav links by default
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        position: absolute;
+        top: 60px; // Position below the header
+        right: 0;
+        background-color: var(--nav-background);
+        padding: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+  
+        &.active {
+          display: flex; // Show nav when active
+        }
+  
+        .nav-link {
+          font-size: 1rem; // Adjust font size for links
+          width: 100%; // Full width for touch-friendliness
+          text-align: center;
+        }
+      }
+    }
+  
+    // .theme-toggle {
+    //   margin-top: 1rem; // Add space for the toggle
+    //   align-self: center; // Center-align toggle
+    // }
+  
+    .contact-floating-button {
+      bottom: 2rem; // Adjust button position
+      // left: calc(50% - 50px); // Center the button horizontally
+      width: 80px; // Reduce size for smaller screens
+      height: 80px;
+      font-size: 1.2rem;
+      left: 2rem;
+      
+      svg {
+        width: 70%; // Scale SVG for smaller button
+        height: 70%;
+      }
+    }
+  }
+  

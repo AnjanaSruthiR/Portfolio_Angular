@@ -1,0 +1,29 @@
+@import 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css';
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --background-color: #ffffff;
+  --card-background: linear-gradient(45deg,#dcfaf4b6,  #e3e8faa3, #e8dffda8, #cdd5f8a1);
+  --text-gradient: linear-gradient(45deg, #0939f8, #b507f4);
+  --nav-background: #ffffff;
+  --nav-text: #000000;
+  --contact-me-text: #000000da; /* Fixed spacing */
+  --about-timeline: linear-gradient(180deg, #99959200, #131313, #605144, #94877c);
+  --about-timeline-item: linear-gradient(210deg, #6b636331, #a29b9b55, #6055554c, #514c4c82);
+  --skills-h3: #000000;
+  --edu-exp-card: linear-gradient(135deg, #fffcfcee, #a29b9bee);
+}
+
+body {
+  background-color: var(--background-color);
+  color: #000000; 
+}
+
+.text-gradient {
+  background: var(--text-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

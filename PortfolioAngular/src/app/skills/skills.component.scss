@@ -1,0 +1,117 @@
+.skills-section {
+  text-align: center;
+  // padding: 5rem;
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    background: var(--text-gradient);
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    letter-spacing: 2px;
+  }
+
+  .skills-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem; /* Adds space between categories */
+
+    .skill-category {
+      display: flex;
+      flex-direction: column; /* Stack category name and skills vertically */
+      align-items: flex-start;
+
+      h3 {
+        font-size: 1.5rem;
+        margin: 2.5rem; /* Adds spacing between category name and skills */
+        color: var(--Skills-H3);
+      }
+
+      .skill-items {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap; /* Wrap skills if they overflow */
+        padding-left: 20rem; /* Indents skills under the category name */
+
+        .skill-item {
+          display: flex;
+          flex-direction: column; /* Stack icon and name vertically */
+          align-items: center; /* Center align icon and name */
+          gap: 1rem; /* Adds space between icon and name */
+
+          .skill-icon {
+            font-size: 60px; /* Icon size */
+            width: 60px;
+            height: 60px;
+            object-fit: contain; 
+            transition: transform 0.3s ease;
+
+
+            &:hover {
+              transform: scale(1.3);
+              color: #007bff;
+              transform: translateY(-10px);
+              box-shadow: 0 10px 20px var(--nav-background);
+            }
+          }
+
+          .skill-name {
+            font-size: 1rem;
+            color: var(--text-color);
+          }
+        }
+      }
+    }
+  }
+}
+
+ // Tablet View (Max width: 1024px)
+ @media (max-width: 1024px) {
+  .skills-grid {
+    align-items: center !important; // Ensures proper alignment
+  }
+
+  .skill-category {
+    align-items: center !important;
+  }
+}
+
+// Mobile View (Max width: 768px)
+@media (max-width: 768px) {
+  h2 {
+    font-size: 2rem; // Reduce heading size for mobile
+  }
+
+  .skills-grid {
+    align-items: center; // Center skills properly on all screen sizes
+    gap: 1.5rem; // Reduce gap for better fit
+  }
+
+  .skill-category {
+    align-items: center !important;
+
+    h3 {
+      font-size: 1.3rem; // Slightly smaller font for mobile
+    }
+  }
+
+  .skill-items {
+    gap: 1rem !important; // Reduce space between icons
+    flex-direction: row;
+    justify-content: center !important;
+    padding-left: 0px !important;
+  }
+
+  .skill-item {
+    .skill-icon {
+      width: 30px !important; // Reduce icon size for mobile
+      height: 30px !important;
+      font-size: 40px !important;
+    }
+
+    .skill-name {
+      font-size: 0.9rem; // Reduce font size for better readability
+    }
+  }
+}

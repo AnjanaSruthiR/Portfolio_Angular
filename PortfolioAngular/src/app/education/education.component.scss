@@ -1,0 +1,153 @@
+.education-container {
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  min-height: 100vh; 
+  text-align: center;
+  // padding: 5rem;
+
+  h2 {
+    font-size: 2.5rem;
+    background: var(--text-gradient);
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    margin-bottom: 3rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+
+  .education-grid {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 3rem;
+    width: 100%; 
+  }
+
+  .education-card {
+    background: #fff;
+    border-radius: 25px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+    width: 90%; 
+    max-width: 750px; 
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto; 
+
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 5px 10px 15px #595858;
+    }
+
+    .card-header {
+      background: var(--card-background);
+      padding: 1.5rem;
+      border-radius: 25px 25px 0 0;
+      display: flex;
+      align-items: center; /* Vertically center logo and text */
+
+      .college-logo {
+        width: 140px;
+        height: 80px;
+        object-fit: contain; /* Maintain aspect ratio */
+        border-radius: 5px; /* Optional rounded edges */
+        flex-shrink: 0; /* Prevent the logo from shrinking */
+      }
+
+      .header-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Vertically align text */
+        text-align: left; /* Align text to the left */
+
+        h4 {
+          font-size: 1.5rem;
+          color: #343a40;
+          margin: 0 0 0.5rem 0; /* Adjust spacing */
+        }
+
+        .institution {
+          font-size: 1.2rem;
+          color: #232526d6;
+          margin: 0 0 0.5rem 0;
+        }
+
+        .cgpa {
+          font-size: 1rem;
+          color: #495057;
+          margin: 0;
+        }
+      }
+    }
+
+    .card-body {
+      padding: 2rem;
+      border-radius: 0 0 25px 25px;
+
+      p {
+        margin-bottom: 0.3rem;
+        color: #212529;
+      }
+
+      .description {
+        font-size: 1rem;
+        color: #343a40;
+        line-height: 1.5rem;
+        list-style-type: disc;
+        padding-left: 1.5rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.1rem;
+
+        li {
+          margin-bottom: 0.3rem;
+        }
+
+        b {
+          color: #212529;
+        }
+      }
+    }
+  }
+
+
+  // Tablet View (Max width: 1024px)
+  @media (max-width: 1024px) {
+    h2 {
+      font-size: 2.2rem; // Slightly smaller title for tablets
+    }
+  }
+
+  // Mobile View (Max width: 768px)
+  @media (max-width: 768px) {
+    .education-grid {
+      gap: 2rem; // Reduce gap for smaller screens
+    }
+    .education-card {
+      max-width: 95% !important; // Ensures it fits better on small screens
+      padding: 1rem; // Reduce padding
+
+      .card-header {
+        flex-wrap: wrap !important; // Allows wrapping if needed for smaller screens
+        flex-direction: column !important; // Stack logo & text on mobile
+        align-items: center; // Center align text
+
+        .college-logo {
+          width: 100px; // Reduce logo size for better fit
+          margin-bottom: 1rem; // Add spacing between image and text
+        }
+
+        .header-details {
+          text-align: center; // Center-align text on small screens
+          padding-left: 0;
+        }
+      }
+
+      .card-body {
+        padding: 1rem; // Reduce padding for better mobile spacing
+      }
+    }
+  }
+}

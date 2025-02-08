@@ -1,0 +1,206 @@
+.experience-container {
+  text-align: center;
+  background: var(--background-color);
+  padding: 0rem 1rem; // Adjust padding for better spacing on all screens
+
+  h2 {
+    font-size: 2.5rem;
+    background: var(--text-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 3rem;
+    letter-spacing: 2px;
+  }
+
+  .timeline {
+    position: relative;
+    margin: 2rem 0;
+    padding: 1rem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: #310742;
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 3rem;
+      position: relative; // Ensure correct positioning of timeline elements
+
+      &:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+
+      .timeline-dot {
+        background: #9894b3;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1; // Ensure it appears above the timeline line
+      }
+
+      .timeline-content {
+        width: 45%;
+        padding: 1rem;
+
+        .card {
+          background: #fff;
+          border-radius: 12px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+          overflow: hidden;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+          &:hover {
+            transform: translateY(-10px);
+            box-shadow: 5px 10px 15px #595858;
+          }
+
+          .card-header {
+            background: var(--card-background);
+            padding: 1rem;
+
+            .company-info {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin-bottom: 0.5rem;
+
+              .company-logo {
+                width: 50px; // Increased for better visibility
+                height: auto;
+                object-fit: contain;
+                border-radius: 5px;
+              }
+
+              .company {
+                font-size: 1.5rem;
+                font-weight: bold;
+                color: #383838;
+                margin-left: 0.8rem;
+              }
+            }
+
+            .job-title {
+              font-size: 1.4rem;
+              font-weight: bold;
+              margin-bottom: 0.5rem;
+              color: #333;
+            }
+
+            .date {
+              font-size: 0.9rem;
+              color: #6a6969;
+            }
+          }
+
+          .card-body {
+            padding: 1rem;
+
+            .description {
+              font-size: 0.95rem;
+              margin-bottom: 1rem;
+              color: #555;
+            }
+
+            .skills {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 0.5rem;
+
+              .skill-tag {
+                background-color: #f0f8ff;
+                color: #007bff;
+                padding: 0.3rem 0.6rem;
+                border-radius: 5px;
+                font-size: 1rem;
+                font-weight: 500;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Tablet View (Max width: 1024px)
+  // @media (max-width: 1024px) {
+
+  //   .timeline::before, .timeline-dot {
+  //     left: 52% !important; // Move timeline line to the left
+  //   }
+
+  //   .timeline-content {
+  //     width: 40% !important; // Increase content width for better readability
+  //     margin-left: 2rem; // Move right for alignment with timeline
+  //   }
+  // }
+
+  @media (max-width: 1024px) {
+    .timeline::before {
+      left: 10%; // Move timeline line to the left
+    }
+
+    .timeline-item {
+      flex-direction: column !important; // Ensure single-column layout
+
+      .timeline-dot {
+        left: 8.3% !important; // Align dots with the timeline
+      }
+
+      .timeline-content {
+        width: 80% !important; // Increase content width for better readability
+        margin-left: 6rem; // Move right for alignment with timeline
+      }
+    }
+  }
+
+
+  // Mobile View (Max width: 768px)
+  @media (max-width: 767px) {
+    .timeline::before {
+      left: 10% !important; // Move timeline line to the left
+    }
+
+    .timeline-item {
+      flex-direction: column;
+      align-items: flex-start;
+
+      .timeline-dot {
+        width: 25px !important; // Reduce dot size
+        height: 25px !important;
+        left: 6% !important;
+      }
+
+      .timeline-content {
+        margin-left: 12%; // Align properly with the timeline
+
+        .card {
+          padding: 1rem; // Reduce padding for smaller screens
+          box-shadow: none; // Simplify styling for mobile
+
+          .company-logo {
+            width: 40px; // Reduce size for mobile
+          }
+
+          .job-title {
+            font-size: 1.2rem;
+          }
+
+          .description {
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+  }
+}

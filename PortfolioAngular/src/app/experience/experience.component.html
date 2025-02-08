@@ -1,0 +1,26 @@
+<div class="experience-container">
+  <h2>My Professional Experience</h2>
+  <div class="timeline">
+    <div *ngFor="let job of experienceList" class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="card">
+          <div class="card-header">
+            <div class="company-info">            
+              <img [src]="job.logo" alt="{{ job.company }} Logo" class="company-logo" />
+              <div class="company">{{ job.company }}</div>
+            </div>
+            <div class="job-title">{{ job.title }}</div>
+            <div class="date">{{ job.dates }}</div>
+          </div>
+          <div class="card-body">
+            <p class="description">{{ job.description }}</p>
+            <div class="skills">
+              <span *ngFor="let skill of job.skills" class="skill-tag">{{ skill }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
