@@ -1,15 +1,16 @@
 .about-container {
   text-align: center;
   padding: 2rem;
+  font-family:  "Inter-Bold", "Inter", "Inter Placeholder", sans-serif;
 
   .intro {
     margin-top: 3rem;
 
     .intro-content {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 5rem;
       flex-wrap: wrap;
 
       .intro-image {
@@ -21,7 +22,7 @@
       }
 
       .intro-text {
-        text-align: left;
+        text-align: center;
 
         h1 {
           font-size: 2.5rem;
@@ -31,9 +32,12 @@
           margin-bottom: 1rem;
         }
 
+        h3 {
+          margin: 10px;
+        }
         p {
-          font-size: 1.2rem;
-          color: var(--text-color);;
+          font-size: 1rem;
+          color: #3a3939;
           max-width: 600px;
           margin: 0 auto;
         }
@@ -46,7 +50,7 @@
   margin-top: 1.5rem;
   display: flex;
   gap: 1.5rem;
-  justify-content: left;
+  justify-content: center;
 
   .social-icon {
     position: relative;

@@ -1,31 +1,31 @@
 <!-- Conditionally Render Header -->
-<header *ngIf="router.url !== '/'">
-  <div class="header-flex">
-    <h2>ANJANA SRUTHI RANGA</h2>
-    <div class="hamburger" (click)="toggleMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <nav [ngClass]="{ active: isMenuOpen }" class="navbar">
-      <a routerLink="/" class="nav-link">Home</a>
-      <a routerLink="/about" class="nav-link">About</a>
-      <a routerLink="/education" class="nav-link">Education</a>
-      <a routerLink="/experience" class="nav-link">Experience</a>
-      <a routerLink="/skills" class="nav-link">Skills</a>
-      <a routerLink="/projects" class="nav-link">Projects</a>
-      <a routerLink="/contactForm" class="nav-link">Contact Me</a>
-      <a href="https://docs.google.com/document/d/10TsQ-qhk5ZB13b27Zcn2W4d4ddTGYiJNOGzWuwMuY9M/export?format=pdf"
+<header *ngIf="router.url !== '/'" >
+    <div class="header-flex">
+      <h2>ANJANA SRUTHI RANGA</h2>
+      <div class="hamburger" (click)="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav [ngClass]="{ active: isMenuOpen }" class="navbar">
+        <a routerLink="/" class="nav-link">Home</a>
+        <a routerLink="/about" class="nav-link">About</a>
+        <a routerLink="/education" class="nav-link">Education</a>
+        <a routerLink="/experience" class="nav-link">Experience</a>
+        <a routerLink="/skills" class="nav-link">Skills</a>
+        <a routerLink="/projects" class="nav-link">Projects</a>
+        <a routerLink="/contactForm" class="nav-link">Contact Me</a>
+        <a href="https://drive.google.com/file/d/1vpippwmpD3VOb5BxocZjT4XQ09_Yd0Yk/view?usp=sharing"
         target="_blank" class="nav-link">
         RESUME <i class="fa-solid fa-arrow-up-right-from-square"></i>
       </a>
-    </nav>
-  </div>
-</header>
-
-<main [@routeAnimations]="prepareRoute(outlet)">
-  <router-outlet #outlet="outlet"></router-outlet>
-</main>
+      </nav>
+    </div>
+  </header>
+  
+  <main [@routeAnimations]="prepareRoute(outlet)">
+    <router-outlet #outlet="outlet"></router-outlet>
+  </main>
 
 <!-- Floating Contact Button -->
 <button class="contact-floating-button" (click)="scrollToContact()">

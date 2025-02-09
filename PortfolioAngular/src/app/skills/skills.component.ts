@@ -12,7 +12,6 @@ export class SkillsComponent {
       items: [
         { name: 'JavaScript', icon: 'javascript-plain' },
         { name: 'Typescript', icon: 'typescript-plain' },
-        { name: 'Python', icon: 'python-plain' },
         { name: 'Java', icon: 'java-plain' }
       ]
     },
@@ -45,14 +44,13 @@ export class SkillsComponent {
       items: [
         { name: 'Figma', icon: 'figma-plain' },
         { name: 'Jira', icon: 'jira-plain' },
-        { name: 'ServiceNow (SNOW)', icon: '/assets/Skills/ServiceNow.png' },
+        { name: 'ServiceNow (SNOW)', icon: './assets/Skills/ServiceNow.png' },
         { name: 'Docker', icon: 'docker-plain' },
         { name: 'Power BI', icon: 'assets/Skills/Power_BI.svg' },
         { name: 'NetBeans', icon: 'assets/Skills/NetBeans.svg.png' },
         { name: 'Azure Data Studio', icon: 'assets/Skills/azure-data-studio.png' },
         { name: 'VS Code', icon: 'assets/Skills/Visual_Studio_Code.svg.webp' },
         { name: 'Android Studio', icon: 'androidstudio-plain' },
-        { name: 'Xcode', icon: 'xcode-plain' },
         { name: 'MS Excel', icon: 'assets/Skills/Microsoft_Office_Excel.svg.webp' },
         { name: 'GitHub', icon: 'github-original' },
         { name: 'Bitbucket', icon: 'bitbucket-original' },
