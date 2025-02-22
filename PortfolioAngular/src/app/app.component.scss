@@ -5,6 +5,7 @@ header {
     top: 0;
     width: 100%;
     z-index: 1000;
+    font-family: 'Inter', sans-serif;
   
     .header-flex {
       display: flex;
@@ -26,7 +27,7 @@ header {
       color: var(--nav-text);
       text-decoration: none;
       // font-weight: bold;
-      font-size: 18px;
+      // font-size: 18px;
       padding: 0.5rem 1rem;
       transition: background-color 0.3s, color 0.3s;
       border-radius: 4px;
@@ -100,15 +101,47 @@ header {
     overflow: hidden;
   }
 
+  .footer {
+    background-color: #fff;
+    color: #333;
+    padding: 1rem 1rem 0;
+    text-align: center;
+    border-top: 1px solid #3333332c; 
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  
+    .footer-links {
+      margin-bottom: 1rem;
+  
+      a {
+        color: #333;
+        margin: 0 0.5rem;
+        font-size: 1.5rem;
+        transition: color 0.3s ease;
+  
+        &:hover {
+          color: #bd5cea;
+        }
+      }
+    }
+  
+    .footer-text {
+      font-size: 0.875rem;
+    }
+  }  
+
   @media (max-width: 768px) {
     header {
-      padding: 0.5rem; // Adjust padding for smaller screens
+      padding: 0.5rem;
       .header-flex {
-        margin: 0 auto; // Center-align content
-        padding: 0 1rem; // Reduce padding for smaller width
+        margin: 0 auto;
+        padding: 0 1rem;
   
         h2 {
-          font-size: 1.2rem; // Reduce font size for the title
+          // font-size: 1.2rem;
           text-align: center;
         }
   
@@ -128,12 +161,12 @@ header {
       }
   
       nav {
-        display: none; // Hide the nav links by default
+        display: none;
         flex-direction: column;
         align-items: center;
         gap: 10px;
         position: absolute;
-        top: 60px; // Position below the header
+        top: 60px;
         right: 0;
         background-color: var(--nav-background);
         padding: 1rem;
@@ -142,26 +175,21 @@ header {
         z-index: 1000;
   
         &.active {
-          display: flex; // Show nav when active
+          display: flex;
         }
   
         .nav-link {
-          font-size: 1rem; // Adjust font size for links
-          width: 100%; // Full width for touch-friendliness
+          // font-size: 1rem;
+          width: 100%;
           text-align: center;
         }
       }
     }
   
-    // .theme-toggle {
-    //   margin-top: 1rem; // Add space for the toggle
-    //   align-self: center; // Center-align toggle
-    // }
-  
     .contact-floating-button {
-      bottom: 2rem; // Adjust button position
-      // left: calc(50% - 50px); // Center the button horizontally
-      width: 80px; // Reduce size for smaller screens
+      bottom: 2rem;
+      // left: calc(50% - 50px);
+      width: 80px;
       height: 80px;
       font-size: 1.2rem;
       left: 2rem;

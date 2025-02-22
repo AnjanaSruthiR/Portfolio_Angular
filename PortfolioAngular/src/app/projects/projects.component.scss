@@ -2,7 +2,7 @@
   text-align: center;
   padding: 1rem 2rem; // Adjust padding for better spacing on all screens
   max-width: 1100px; // Increase max width for better desktop layout
-  margin: 0 auto;
+  margin: 0 auto 5rem;
 
   h2 {
     padding-bottom: 2rem;
@@ -62,13 +62,12 @@
       h3 {
         margin: 0 0 0.5rem;
         font-size: 1.5rem;
-        color: #343333;
+        color: #333333;
       }
 
       p {
-        color: #666;
+        color: #787777;
         font-size: 1rem;
-        margin-bottom: 0.5rem;
       }
 
       .project-tech {

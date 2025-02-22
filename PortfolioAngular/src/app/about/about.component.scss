@@ -1,7 +1,6 @@
 .about-container {
   text-align: center;
   padding: 2rem;
-  font-family:  "Inter-Bold", "Inter", "Inter Placeholder", sans-serif;
 
   .intro {
     margin-top: 3rem;
@@ -12,33 +11,52 @@
       align-items: center;
       justify-content: center;
       flex-wrap: wrap;
-
-      .intro-image {
-        width: 165px;
-        height: 215px;
-        border-radius: 50%;
-        object-fit: cover;
-        
+      
+      .bubble-image-container {
+        width: 300px;
+        margin: 0 3rem;
       }
+      
+      .bubble-image {
+        width: 60%;
+        height: auto;
+        object-fit: cover;
+        clip-path: polygon(
+          40% 5%,
+          80% 10%,
+          100% 40%,
+          99% 77%,
+          77% 100%,
+          30% 100%,
+          5% 85%,
+          0% 55%,
+          5% 25%
+        );
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+      
 
       .intro-text {
         text-align: center;
+        max-width: 90%;
 
         h1 {
           font-size: 2.5rem;
           background: var(--text-gradient); 
           -webkit-background-clip: text; 
           -webkit-text-fill-color: transparent; 
-          margin-bottom: 1rem;
+          margin: 1rem;
         }
 
-        h3 {
-          margin: 10px;
+        h2 {
+          margin: 0 0 1rem;
+          font-size: 32px;
+          color: #282828f6;
         }
+
         p {
           font-size: 1rem;
-          color: #3a3939;
-          max-width: 600px;
+          color: #919191;
           margin: 0 auto;
         }
       }
@@ -87,14 +105,14 @@
 
 .what-i-do {
   text-align: center;
-  padding: 4rem 2rem;
+  padding: 3rem 2rem;
 
-  h2 {
-    font-size: 2rem;
-    background: var(--text-gradient);
+  h1 {
+    font-size: 2.5rem;
+    background: var(--text-gradient); 
     -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent; 
-    margin-bottom: 2rem;
+    margin: 1rem 0 3rem;
   }
 
   .services {
@@ -104,18 +122,10 @@
     flex-wrap: wrap;
 
     .service-card {
-      background: var(--card-background);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-      padding: 1.5rem;
+      background: #fff;
+      padding: 1rem;
       text-align: center;
-      max-width: 300px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-      &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-      }
+      max-width: 340px;
 
       i {
         font-size: 3rem;
@@ -131,7 +141,7 @@
 
       p {
         font-size: 1rem;
-        color: #000000;
+        color: #919191;
         line-height: 1.5;
       }
     }
@@ -141,21 +151,21 @@
 
 @media (max-width: 1024px) {
   .intro-content {
-    gap: 2rem !important; // Reduce spacing on tablets
+    gap: 2rem !important;
   }
 }
 
 @media (max-width: 768px) {
   .intro-content {
-    flex-direction: column; // Stack image & text
-    text-align: center; // Center align text
+    flex-direction: column;
+    text-align: center;
 
     .intro-text, .social-links {
       text-align: center !important;
       justify-content: center;
       
       h1 {
-        font-size: 2rem; // Reduce title size for small screens
+        font-size: 2rem;
       }
 
       p {
@@ -163,16 +173,18 @@
         max-width: 90%;
       }
     }
+    .bubble-image-container {
+      margin: 0px !important;
+    }
 
-    .intro-image {
-      width: 130px; // Reduce image size for better fit
+    .bubble-image {
+      width: 130px; 
       height: 180px;
     }
   }
 
   .services {
-    flex-direction: column; // Stack service cards on mobile
+    flex-direction: column; 
     align-items: center;
   }
 }
-

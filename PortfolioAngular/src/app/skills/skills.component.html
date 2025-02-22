@@ -5,12 +5,8 @@
       <h3>{{ category.name }}</h3>
       <div class="skill-items">
         <div class="skill-item" *ngFor="let skill of category.items">
-          <!-- Use img for custom icons -->
           <img *ngIf="skill.icon.includes('assets')" [src]="skill.icon" [alt]="skill.name" class="skill-icon">
-
-          <!-- Use i for devicon-based icons -->
           <i *ngIf="!skill.icon.includes('assets')" class="devicon-{{ skill.icon }} colored skill-icon"></i>
-
           <span class="skill-name">{{ skill.name }}</span>
         </div>
       </div>

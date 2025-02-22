@@ -35,7 +35,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    margin: 0 auto; 
+    margin: 0 auto 5rem; 
 
     &:hover {
       transform: translateY(-10px);
@@ -89,12 +89,12 @@
 
       p {
         margin-bottom: 0.3rem;
-        color: #212529;
+        color: #646465;
       }
 
       .description {
         font-size: 1rem;
-        color: #343a40;
+        color: #646465;
         line-height: 1.5rem;
         list-style-type: disc;
         padding-left: 1.5rem;

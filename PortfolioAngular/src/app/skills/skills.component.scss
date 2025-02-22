@@ -1,6 +1,6 @@
 .skills-section {
   text-align: center;
-  // padding: 5rem;
+  margin-bottom: 5rem;
 
   h2 {
     font-size: 2.5rem;
@@ -15,33 +15,35 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.5rem; /* Adds space between categories */
+    gap: 1.5rem;
+    max-width: 60%;
+    margin: 0 auto;  
 
     .skill-category {
       display: flex;
-      flex-direction: column; /* Stack category name and skills vertically */
+      flex-direction: column;
       align-items: flex-start;
 
       h3 {
         font-size: 1.5rem;
-        margin: 2.5rem; /* Adds spacing between category name and skills */
+        margin: 2.5rem;
         color: var(--Skills-H3);
       }
 
       .skill-items {
         display: flex;
         gap: 2rem;
-        flex-wrap: wrap; /* Wrap skills if they overflow */
-        padding-left: 20rem; /* Indents skills under the category name */
+        flex-wrap: wrap;
+        padding-left: 15rem;
 
         .skill-item {
           display: flex;
-          flex-direction: column; /* Stack icon and name vertically */
-          align-items: center; /* Center align icon and name */
-          gap: 1rem; /* Adds space between icon and name */
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
 
           .skill-icon {
-            font-size: 60px; /* Icon size */
+            font-size: 60px;
             width: 60px;
             height: 60px;
             object-fit: contain; 
@@ -69,7 +71,7 @@
  // Tablet View (Max width: 1024px)
  @media (max-width: 1024px) {
   .skills-grid {
-    align-items: center !important; // Ensures proper alignment
+    align-items: center !important;
   }
 
   .skill-category {
@@ -80,24 +82,25 @@
 // Mobile View (Max width: 768px)
 @media (max-width: 768px) {
   h2 {
-    font-size: 2rem; // Reduce heading size for mobile
+    font-size: 2rem;
   }
 
   .skills-grid {
-    align-items: center; // Center skills properly on all screen sizes
-    gap: 1.5rem; // Reduce gap for better fit
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 90% !important;
   }
 
   .skill-category {
     align-items: center !important;
 
     h3 {
-      font-size: 1.3rem; // Slightly smaller font for mobile
+      font-size: 1.3rem;
     }
   }
 
   .skill-items {
-    gap: 1rem !important; // Reduce space between icons
+    gap: 1rem !important;
     flex-direction: row;
     justify-content: center !important;
     padding-left: 0px !important;
@@ -105,13 +108,13 @@
 
   .skill-item {
     .skill-icon {
-      width: 30px !important; // Reduce icon size for mobile
+      width: 30px !important;
       height: 30px !important;
       font-size: 40px !important;
     }
 
     .skill-name {
-      font-size: 0.9rem; // Reduce font size for better readability
+      font-size: 0.9rem;
     }
   }
 }

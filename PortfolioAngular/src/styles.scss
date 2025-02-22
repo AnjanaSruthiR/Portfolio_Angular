@@ -7,7 +7,7 @@ html {
 :root {
   --background-color: #ffffff;
   --card-background: linear-gradient(45deg,#dcfaf4b6,  #e3e8faa3, #e8dffda8, #cdd5f8a1);
-  --text-gradient: linear-gradient(45deg, #0939f8, #b507f4);
+  --text-gradient: linear-gradient(45deg, #0939f8, #b507f4, #8507f4);
   --nav-background: #ffffff;
   --nav-text: #000000;
   --contact-me-text: #000000da; /* Fixed spacing */
@@ -20,6 +20,7 @@ html {
 body {
   background-color: var(--background-color);
   color: #000000; 
+  font-family: 'Inter', sans-serif;
 }
 
 .text-gradient {
