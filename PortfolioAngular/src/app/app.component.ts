@@ -1,5 +1,5 @@
 import { Component, HostListener } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet, NavigationEnd } from '@angular/router';
 import { trigger, transition, style, animate, query, group } from '@angular/animations';
 
 @Component({
@@ -37,13 +37,23 @@ import { trigger, transition, style, animate, query, group } from '@angular/anim
   ]
 })
 export class AppComponent {
-  isMenuOpen: boolean = false; // Track menu visibility
+  isMenuOpen: boolean = false;
   isScrolled: boolean = false;
 
-  constructor(public router: Router) { }
+  constructor(public router: Router) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.closeMenu();
+      }
+    });
+  }
 
   toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen; // Toggle the menu
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  closeMenu() {
+    this.isMenuOpen = false;
   }
 
   scrollToContact() {
@@ -64,5 +74,13 @@ export class AppComponent {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     this.isScrolled = window.pageYOffset > 100;
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: Event) {
+    const target = event.target as HTMLElement;
+    if (!target.closest('.navbar') && !target.closest('.hamburger')) {
+      this.closeMenu();
+    }
   }
 }

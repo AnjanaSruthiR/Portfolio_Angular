@@ -21,7 +21,7 @@
     &::before {
       content: '';
       position: absolute;
-      left: 50%;
+      left: 15%;
       top: 0;
       bottom: 0;
       width: 3px;
@@ -31,13 +31,10 @@
 
     .timeline-item {
       display: flex;
-      justify-content: flex-start;
+      justify-content: flex-end;
       margin-bottom: 3rem;
-      position: relative; // Ensure correct positioning of timeline elements
-
-      &:nth-child(even) {
-        flex-direction: row-reverse;
-      }
+      margin-right: 5rem;
+      position: relative;
 
       .timeline-dot {
         background: #9894b3;
@@ -45,13 +42,13 @@
         width: 30px;
         height: 30px;
         position: absolute;
-        left: 50%;
+        left: 15%;
         transform: translateX(-50%);
-        z-index: 1; // Ensure it appears above the timeline line
+        z-index: 1;
       }
 
       .timeline-content {
-        width: 45%;
+        width: 80%;
         padding: 1rem;
 
         .card {
@@ -133,75 +130,91 @@
     }
   }
 
-  // Tablet View (Max width: 1024px)
-  // @media (max-width: 1024px) {
-
-  //   .timeline::before, .timeline-dot {
-  //     left: 52% !important; // Move timeline line to the left
-  //   }
-
-  //   .timeline-content {
-  //     width: 40% !important; // Increase content width for better readability
-  //     margin-left: 2rem; // Move right for alignment with timeline
-  //   }
-  // }
-
+  // Existing media queries for tablet
   @media (max-width: 1024px) {
     .timeline::before {
-      left: 10%; // Move timeline line to the left
+      left: 10%;
     }
 
     .timeline-item {
-      flex-direction: column !important; // Ensure single-column layout
-
+      margin-right: 0 !important;
+      
       .timeline-dot {
-        left: 8.3% !important; // Align dots with the timeline
+        left: 8.3% !important;
       }
 
       .timeline-content {
-        width: 80% !important; // Increase content width for better readability
-        margin-left: 6rem; // Move right for alignment with timeline
+        width: 80% !important;
+        margin-left: 6rem;
       }
     }
   }
 
-
-  // Mobile View (Max width: 768px)
+  // Mobile View (Max width: 767px) – Apply Flip Card Styles
   @media (max-width: 767px) {
     .timeline::before {
-      left: 10% !important; // Move timeline line to the left
+      display: none;
     }
 
     .timeline-item {
-      flex-direction: column;
-      align-items: flex-start;
+      justify-content: center !important;
 
       .timeline-dot {
-        width: 25px !important; // Reduce dot size
-        height: 25px !important;
-        left: 6% !important;
+        display: none;
       }
 
       .timeline-content {
-        margin-left: 12%; // Align properly with the timeline
+        margin: 0;
+        width: 90% !important;
 
+        // Remove hover effects on card if desired
         .card {
-          padding: 1rem; // Reduce padding for smaller screens
-          box-shadow: none; // Simplify styling for mobile
-
-          .company-logo {
-            width: 40px; // Reduce size for mobile
-          }
-
-          .job-title {
-            font-size: 1.2rem;
-          }
-
-          .description {
-            font-size: 0.9rem;
+          box-shadow: none;
+          transform: none;
+          &:hover {
+            transform: none;
+            box-shadow: none;
           }
         }
       }
+    }
+
+    .card-header {
+      height: 300px;
+      align-content: center;
+    }
+
+    .flip-card {
+      perspective: 1000px;
+      cursor: pointer;
+      /* Remove any fixed height so that the container auto-sizes */
+      height: auto;
+    }
+    .flip-card .card-inner {
+      position: relative;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+    .flip-card .card-front,
+    .flip-card .card-back {
+      /* Remove absolute positioning so that their natural height contributes */
+      /* to the container height */
+      position: relative;
+      width: 100%;
+      backface-visibility: hidden;
+      box-sizing: border-box;
+    }
+    /* Front face: fixed height (if desired) */
+    .flip-card .card-front {
+      height: 0px;
+    }
+    /* Back face: natural height */
+    .flip-card .card-back {
+      transform: rotateY(180deg);
+    }
+    /* Flip effect when card is flipped */
+    .flip-card.flipped .card-inner {
+      transform: rotateY(180deg);
     }
   }
 }

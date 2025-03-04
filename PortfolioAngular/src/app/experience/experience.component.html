@@ -4,22 +4,50 @@
     <div *ngFor="let job of experienceList" class="timeline-item">
       <div class="timeline-dot"></div>
       <div class="timeline-content">
-        <div class="card">
-          <div class="card-header">
-            <div class="company-info">            
-              <img [src]="job.logo" alt="{{ job.company }} Logo" class="company-logo" />
-              <div class="company">{{ job.company }}</div>
+
+        <ng-container *ngIf="isMobile; else desktopCard">
+          <div class="card flip-card" (click)="job.isFlipped = !job.isFlipped" [ngClass]="{'flipped': job.isFlipped}">
+            <div class="card-inner">
+              <div class="card-front">
+                <div class="card-header">
+                  <div class="company-info">            
+                    <img [src]="job.logo" alt="{{ job.company }} Logo" class="company-logo" />
+                    <div class="company">{{ job.company }}</div>
+                  </div>
+                  <div class="job-title">{{ job.title }}</div>
+                  <div class="date">{{ job.dates }}</div>
+                </div>
+              </div>
+              <div class="card-back">
+                <div class="card-body">
+                  <p class="description">{{ job.description }}</p>
+                  <div class="skills">
+                    <span *ngFor="let skill of job.skills" class="skill-tag">{{ skill }}</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="job-title">{{ job.title }}</div>
-            <div class="date">{{ job.dates }}</div>
           </div>
-          <div class="card-body">
-            <p class="description">{{ job.description }}</p>
-            <div class="skills">
-              <span *ngFor="let skill of job.skills" class="skill-tag">{{ skill }}</span>
+        </ng-container>        
+
+        <ng-template #desktopCard>
+          <div class="card">
+            <div class="card-header">
+              <div class="company-info">            
+                <img [src]="job.logo" alt="{{ job.company }} Logo" class="company-logo" />
+                <div class="company">{{ job.company }}</div>
+              </div>
+              <div class="job-title">{{ job.title }}</div>
+              <div class="date">{{ job.dates }}</div>
+            </div>
+            <div class="card-body">
+              <p class="description">{{ job.description }}</p>
+              <div class="skills">
+                <span *ngFor="let skill of job.skills" class="skill-tag">{{ skill }}</span>
+              </div>
             </div>
           </div>
-        </div>
+        </ng-template>
       </div>
     </div>
   </div>
