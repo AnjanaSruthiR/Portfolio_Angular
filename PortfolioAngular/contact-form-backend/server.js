@@ -8,14 +8,14 @@ const app = express();
 const PORT = 3000;
 
 // Middleware
-app.use(cors({ origin: 'http://localhost:4200' })); // Update as needed
+app.use(cors({ origin: 'http://localhost:4200' }));
 app.use(bodyParser.json());
 
 // Route to handle form submissions
 app.post('/submit', async (req, res) => {
-    const { fullName, email, phone, subject, message } = req.body;
+    const { fullName, email, subject, message } = req.body;
   
-    console.log('Received form data:', req.body); // Log incoming data
+    console.log('Received form data:', req.body); 
   
     if (!fullName || !email || !message) {
       console.error('Validation error: Missing required fields.');
@@ -39,7 +39,6 @@ app.post('/submit', async (req, res) => {
   
         Name: ${fullName}
         Email: ${email}
-        Phone: ${phone || 'Not Provided'}
         Subject: ${subject || 'No Subject'}
         Message:
         ${message}

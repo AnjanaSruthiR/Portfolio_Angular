@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { trigger, transition, style, animate, query, group } from '@angular/animations';
 
@@ -38,8 +38,9 @@ import { trigger, transition, style, animate, query, group } from '@angular/anim
 })
 export class AppComponent {
   isMenuOpen: boolean = false; // Track menu visibility
+  isScrolled: boolean = false;
 
-  constructor(public router: Router) {}
+  constructor(public router: Router) { }
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen; // Toggle the menu
@@ -58,5 +59,10 @@ export class AppComponent {
 
   prepareRoute(outlet: RouterOutlet) {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.isScrolled = window.pageYOffset > 100;
   }
 }

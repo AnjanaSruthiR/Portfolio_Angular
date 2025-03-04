@@ -6,7 +6,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { EducationComponent } from './education/education.component';
 import { ExperienceComponent } from './experience/experience.component';
 import { SkillsComponent } from './skills/skills.component';
 import { ProjectsComponent } from './projects/projects.component';
@@ -18,7 +17,6 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     HomeComponent,
-    EducationComponent,
     ExperienceComponent,
     SkillsComponent,
     ProjectsComponent,

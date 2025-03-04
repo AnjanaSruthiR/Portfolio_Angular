@@ -22,7 +22,6 @@ export class ContactFormComponent {
   formData = {
     fullName: '',
     email: '',
-    phone: '',
     subject: '',
     message: '',
   };
@@ -69,7 +68,6 @@ export class ContactFormComponent {
     this.formData = {
       fullName: '',
       email: '',
-      phone: '',
       subject: '',
       message: '',
     };

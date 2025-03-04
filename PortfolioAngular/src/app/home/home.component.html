@@ -1,10 +1,23 @@
 <div class="home-intro">
-  <div #starsContainer class="stars-container"></div>
-  <h1>ANJANA SRUTHI RANGA</h1>
-  <p class="dynamic-text">
-    I'm a <span class="changing-word">{{ currentWord }}</span>
-  </p>
-
+  <video
+  #bgVideo
+  id="bg-video"
+  autoplay
+  muted
+  loop
+  playsinline
+  preload="auto"
+>
+  <source src="assets/About/home.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+  
+  <!-- <div id="container-home"> -->
+    <h1>ANJANA SRUTHI RANGA</h1>
+    <p class="dynamic-text">
+      I'm a <span class="changing-word">{{ currentWord }}</span>
+    </p>
+  <!-- </div> -->
   <div class="home-links">
     <a routerLink="/about">About Me</a>
     <a routerLink="/education">Education</a>

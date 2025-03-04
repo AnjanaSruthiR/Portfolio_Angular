@@ -18,11 +18,12 @@ export class SkillsComponent {
     {
       name: 'Frontend Development',
       items: [
+        { name: 'AngularJS', icon: 'angularjs-plain' },
+        { name: 'ReactJS', icon: 'react-plain' },
         { name: 'HTML5', icon: 'html5-plain' },
         { name: 'CSS3', icon: 'css3-plain' },
         { name: 'SASS', icon: 'sass-original' },
-        { name: 'Bootstrap', icon: 'bootstrap-plain' },
-        { name: 'AngularJS', icon: 'angularjs-plain' }
+        { name: 'Bootstrap', icon: 'bootstrap-plain' }
       ]
     },
     {

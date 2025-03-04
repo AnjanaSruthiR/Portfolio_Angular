@@ -6,7 +6,6 @@ import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/co
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  @ViewChild('starsContainer', { static: true }) starsContainer!: ElementRef;
 
   words = [
     'Software Developer',
@@ -24,9 +23,7 @@ export class HomeComponent implements OnInit {
   isDeleting = false;
 
   constructor(private renderer: Renderer2) {}
-
   ngOnInit() {
-    this.generateStars();
     this.typeEffect();
   }
 
@@ -52,15 +49,40 @@ export class HomeComponent implements OnInit {
     setTimeout(() => this.typeEffect(), delay);
   }
 
-  generateStars() {
-    const starCount = 100;
-    for (let i = 0; i < starCount; i++) {
-      const star = this.renderer.createElement('div');
-      this.renderer.addClass(star, 'star');
-      this.renderer.setStyle(star, 'top', `${Math.random() * 100}vh`);
-      this.renderer.setStyle(star, 'left', `${Math.random() * 100}vw`);
-      this.renderer.setStyle(star, 'animationDuration', `${Math.random() * 2 + 1}s`);
-      this.renderer.appendChild(this.starsContainer.nativeElement, star);
-    }
+  @ViewChild('bgVideo') bgVideo!: ElementRef<HTMLVideoElement>;
+
+  ngAfterViewInit(): void {
+    // Option 1: Try to auto-play after a slight delay
+    setTimeout(() => {
+      const video = this.bgVideo.nativeElement;
+      video.muted = true; // ensure it's muted
+      video.play().then(() => {
+        console.log('Auto-play succeeded');
+      }).catch(err => {
+        console.error('Auto-play failed:', err);
+        // Option 2: Add a one-time click listener to resume playback
+        this.addUserInteractionFallback();
+      });
+    }, 100); // 100ms delay to allow view rendering
+  }
+
+  // Fallback: if auto-play fails, prompt for a click to start video
+  private addUserInteractionFallback(): void {
+    const overlay = document.createElement('div');
+    overlay.style.position = 'fixed';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100%';
+    overlay.style.height = '100%';
+    overlay.style.zIndex = '9999';
+    overlay.style.backgroundColor = 'rgba(0,0,0,0)'; // fully transparent
+    overlay.style.cursor = 'pointer';
+    overlay.addEventListener('click', () => {
+      this.bgVideo.nativeElement.play().then(() => {
+        console.log('Playback started after user interaction');
+        document.body.removeChild(overlay);
+      });
+    });
+    document.body.appendChild(overlay);
   }
 }

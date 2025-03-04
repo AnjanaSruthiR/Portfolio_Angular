@@ -1,55 +1,24 @@
-// Define theme gradient variables directly here
-// $dark-bg-start: #00172d;
-// $dark-bg-end: #003366;
-// $light-bg-start: #000000;
-// $light-bg-end: #051940;
-$light-bg-start: #2d659a;
-$light-bg-end: #0a2342;
-
-// Background styling with flickering stars
-// body {
-//   margin: 0;
-//   overflow: hidden;
-//   height: 100vh;
-//   background: linear-gradient(120deg, $dark-bg-start, $dark-bg-end);
-// }
-
-// Star styling
-.stars-container {
+#bg-video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-}
-
-.star {
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  background: white;
-  border-radius: 50%;
-  opacity: 0.5;
-  animation: flicker 2s infinite ease-in-out alternate;
-}
-
-// Flickering effect for stars
-@keyframes flicker {
-  0%, 100% { opacity: 0.5; transform: scale(1.5); }
-  50% { opacity: 1; transform: scale(3); }
+  object-fit: cover;
+  z-index: -1;
 }
 
 .home-intro {
   display: flex;
   flex-direction: column;
-  align-items: center; // Center everything for small screens
+  align-items: center;
   justify-content: center;
   text-align: center;
   min-height: 100vh;
-  padding: 0 15rem; // Reduce padding for better responsiveness
-  background: linear-gradient(23deg, $light-bg-start, $light-bg-end);
+  padding: 0 15rem;
   position: relative;
+  background: transparent;
+  // z-index: 1;
   overflow: hidden;
 
   h1 {
@@ -140,15 +109,4 @@ $light-bg-end: #0a2342;
       align-items: center;
     }
   }
-}
-
-// Improve the stars container for mobile
-.stars-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh; // Ensure full height
-  min-height: 100vh; // Fixes possible overflow issue
-  object-fit: cover;
 }

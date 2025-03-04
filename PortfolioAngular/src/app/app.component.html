@@ -1,26 +1,30 @@
 <!-- Conditionally Render Header -->
-<header *ngIf="router.url !== '/'" >
-    <div class="header-flex">
-      <h3>ANJANA SRUTHI RANGA</h3>
-      <div class="hamburger" (click)="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <nav [ngClass]="{ active: isMenuOpen }" class="navbar">
-        <a routerLink="/about" class="nav-link">About</a>
-        <a routerLink="/education" class="nav-link">Education</a>
-        <a routerLink="/experience" class="nav-link">Experience</a>
-        <a routerLink="/skills" class="nav-link">Skills</a>
-        <a routerLink="/projects" class="nav-link">Projects</a>
-        <a routerLink="/contactForm" class="nav-link">Contact Me</a>
-        <a href="https://drive.google.com/file/d/1vpippwmpD3VOb5BxocZjT4XQ09_Yd0Yk/view?usp=sharing"
-        target="_blank" class="nav-link">
-        RESUME <i class="fa-solid fa-arrow-up-right-from-square"></i>
-      </a>
-      </nav>
+<!-- Conditionally Render Header -->
+<header *ngIf="router.url !== '/'" [ngClass]="{'scrolled': isScrolled}">
+  <div class="header-flex">
+    <!-- Change the header text based on scroll state -->
+    <h3>{{ isScrolled ? 'AS' : 'ANJANA SRUTHI RANGA' }}</h3>
+    <!-- The hamburger remains the same; you could also conditionally add a class if needed -->
+    <div class="hamburger" (click)="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
-  </header>
+    <nav [ngClass]="{ active: isMenuOpen }" class="navbar">
+      <a routerLink="/about" class="nav-link">About</a>
+      <a [routerLink]="['/about']" fragment="education-container" class="nav-link">Education</a>
+      <a routerLink="/experience" class="nav-link">Experience</a>
+      <a routerLink="/skills" class="nav-link">Skills</a>
+      <a routerLink="/projects" class="nav-link">Projects</a>
+      <a routerLink="/contactForm" class="nav-link">Contact Me</a>
+      <a href="https://drive.google.com/file/d/1vpippwmpD3VOb5BxocZjT4XQ09_Yd0Yk/view?usp=sharing"
+         target="_blank" class="nav-link">
+         RESUME <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+    </nav>
+  </div>
+</header>
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 
   <main [@routeAnimations]="prepareRoute(outlet)">

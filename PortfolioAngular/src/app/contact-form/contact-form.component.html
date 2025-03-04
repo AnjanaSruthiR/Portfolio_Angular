@@ -31,10 +31,6 @@
           <label for="email"><i class="fas fa-envelope"></i></label>
           <input type="email" id="email" [(ngModel)]="formData.email" name="email" placeholder="Your Email" required />
         </div>
-        <div class="form-group">
-          <label for="phone"><i class="fas fa-phone"></i></label>
-          <input type="text" id="phone" [(ngModel)]="formData.phone" name="phone" placeholder="Your Phone" />
-        </div>
         <button type="button" class="prev-btn" (click)="prevStep()">Back</button>
         <button type="button" class="next-btn" (click)="nextStep()">Next</button>
       </div>

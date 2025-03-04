@@ -148,43 +148,238 @@
   }
 }
 
+.education-container {
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  min-height: auto; 
+  text-align: center;
+  // padding: 5rem;
 
-@media (max-width: 1024px) {
-  .intro-content {
-    gap: 2rem !important;
-  }
-}
+  .accordion-item {
+    width: 100%;
+    max-width: 1300px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 2rem;
 
-@media (max-width: 768px) {
-  .intro-content {
-    flex-direction: column;
-    text-align: center;
+    .accordion-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      background: var(--card-background);
+      cursor: pointer;
+      border: 1px solid #ccc;
+      user-select: none;
 
-    .intro-text, .social-links {
-      text-align: center !important;
-      justify-content: center;
-      
-      h1 {
+      .accordion-icon-left {
         font-size: 2rem;
+        margin-right: 1rem;
       }
+      
+      .header-text {
+        flex-grow: 1;
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+      
+      .accordion-icon {
+        font-size: 1.5rem;
+      }
+    }
+    
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      padding: 0 1rem;
+      background: #fff;
+    }
+    
+    &.active {
+      .accordion-content {
+        max-height: 1500px;
+        padding: 1rem;
+      }
+    }
+  }
+
+  .education-grid {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 1rem;
+    width: 100%; 
+  }
+
+  .education-card {
+    background: #fff;
+    width: 90%; 
+    max-width: 1200px; 
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem; 
+
+    .card-header {
+      padding: 0.5rem;
+      display: flex;
+
+      .college-logo {
+        width: 140px;
+        height: 80px;
+        object-fit: contain;
+        border-radius: 5px;
+        flex-shrink: 0;
+        margin-top: 2rem;
+      }
+
+      .header-details {
+        border-radius: 10px;
+        border: 1px solid #ccc; // adds an equal border on all sides
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); // even shadow on all sides (0 offset)
+        width: 90%; 
+        max-width: 750px; 
+        text-align: left;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        margin: 1rem auto;
+        padding: 2rem;
+
+        &:hover {
+          transform: translateY(-10px);
+          box-shadow: 5px 10px 15px #595858;
+        }
+
+        h4 {
+          font-size: 1.5rem;
+          color: #343a40;
+          margin: 0 0 0.5rem 0;
+        }
+
+        .institution {
+          font-size: 1.2rem;
+          color: #232526d6;
+          margin: 0 0 0.5rem 0;
+        }
+
+        .cgpa {
+          font-size: 1rem;
+          color: #495057;
+          margin: 0;
+        }
+
+        hr {
+          border: none;
+          height: 2px;
+          background-color: #ccc;
+          margin: 1rem;
+        }
+      }
+    }
+
+    .card-body {
+      border-radius: 0 0 25px 25px;
 
       p {
+        margin: 0.3rem 0;
+        color: #646465;
+      }
+
+      .description {
         font-size: 1rem;
-        max-width: 90%;
+        color: #646465;
+        line-height: 1.5rem;
+        list-style-type: disc;
+        padding-left: 1.5rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.1rem;
+
+        li {
+          margin-bottom: 0.3rem;
+        }
+
+        b {
+          color: #212529;
+        }
       }
     }
-    .bubble-image-container {
-      margin: 0px !important;
-    }
-
-    .bubble-image {
-      width: 130px; 
-      height: 180px;
-    }
-  }
-
-  .services {
-    flex-direction: column; 
-    align-items: center;
   }
 }
+
+  @media (max-width: 1024px) {
+    .about-container .intro .intro-content {
+      gap: 2rem !important;
+    }
+  
+    .about-container h2 {
+      font-size: 2.2rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .about-container .intro .intro-content {
+      flex-direction: column;
+      text-align: center;
+  
+      .bubble-image-container {
+        margin: 0 !important;
+      }
+  
+      .bubble-image {
+        width: 130px;
+        height: 180px;
+      }
+      
+      .intro-text,
+      .social-links {
+        text-align: center !important;
+        justify-content: center;
+        
+        h2 {
+          font-size: 2rem !important;
+        }
+        
+        p {
+          font-size: 1rem;
+          max-width: 90%;
+        }
+      }
+    }
+  
+    .what-i-do .services {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .education-container .education-grid {
+      gap: 0.5rem;
+    }
+  
+    .education-container .education-card {
+      max-width: 95% !important;
+      // padding: 1rem;
+  
+      .card-header {
+        flex-wrap: wrap !important;
+        flex-direction: column !important;
+        align-items: center;
+  
+        .college-logo {
+          width: 100px;
+          margin: 1rem;
+        }
+  
+        .header-details {
+          padding-left: 1.5rem;
+        }
+      }
+  
+      .card-body {
+        padding: 1rem;
+      }
+    }
+  }
