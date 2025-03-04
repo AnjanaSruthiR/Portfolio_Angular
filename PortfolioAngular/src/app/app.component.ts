@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router, RouterOutlet, NavigationEnd } from '@angular/router';
 import { trigger, transition, style, animate, query, group } from '@angular/animations';
 
@@ -36,16 +36,26 @@ import { trigger, transition, style, animate, query, group } from '@angular/anim
     ])
   ]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   isMenuOpen: boolean = false;
   isScrolled: boolean = false;
+  customCursor!: HTMLElement;
+
+  // Add a property to track the last spawn time
+  private lastEmojiSpawnTime: number = 0;
 
   constructor(public router: Router) {
+    // Close nav on navigation end
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.closeMenu();
       }
     });
+  }
+
+  ngOnInit() {
+    // Get the custom cursor element once the view is initialized
+    this.customCursor = document.querySelector('.custom-cursor') as HTMLElement;
   }
 
   toggleMenu() {
@@ -82,5 +92,46 @@ export class AppComponent {
     if (!target.closest('.navbar') && !target.closest('.hamburger')) {
       this.closeMenu();
     }
+  }
+
+  @HostListener('document:mousemove', ['$event'])
+  onMouseMove(event: MouseEvent) {
+    // Update custom cursor position
+    if (this.customCursor) {
+      this.customCursor.style.top = `${event.clientY}px`;
+      this.customCursor.style.left = `${event.clientX}px`;
+    }
+
+    // Throttle emoji spawning
+    const now = Date.now();
+    const threshold = 100; // in milliseconds
+    if (now - this.lastEmojiSpawnTime > threshold) {
+      this.spawnEmojiTrail(event.clientX, event.clientY);
+      this.lastEmojiSpawnTime = now;
+    }
+  }
+
+  spawnEmojiTrail(x: number, y: number) {
+    // List of emojis to choose from
+    const emojis = ['💜', '🍓', '🌺', '💜', '🍒', '🎈'];
+    const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+
+    const emoji = document.createElement('span');
+    emoji.classList.add('emoji-trail');
+    emoji.innerText = randomEmoji;
+
+    // Position the element at the cursor position
+    emoji.style.position = 'fixed';
+    emoji.style.left = `${x}px`;
+    emoji.style.top = `${y}px`;
+    emoji.style.pointerEvents = 'none';
+
+    // Append to the document
+    document.body.appendChild(emoji);
+
+    // Remove the emoji after the animation finishes (1 second)
+    setTimeout(() => {
+      emoji.remove();
+    }, 1000);
   }
 }

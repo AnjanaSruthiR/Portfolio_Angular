@@ -3,6 +3,12 @@ $secondary-color: #4e9afe;
 $background-color: #f4f6f8;
 $text-color: #333;
 
+#container-contact {
+  padding: 3rem 0 10rem;
+  background: url('../../assets/About/Bg_About.jpg') no-repeat center center;
+  background-size: cover;
+}
+
 h3 {
   justify-content: center; 
   align-items: center; 

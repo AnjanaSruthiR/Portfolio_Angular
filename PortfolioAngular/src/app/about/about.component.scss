@@ -1,6 +1,8 @@
 .about-container {
   text-align: center;
   padding: 2rem;
+  background: url('../../assets/About/Bg_About.jpg') no-repeat center center;
+  background-size: cover;
 
   .intro {
     margin-top: 3rem;
@@ -238,8 +240,8 @@
 
       .header-details {
         border-radius: 10px;
-        border: 1px solid #ccc; // adds an equal border on all sides
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); // even shadow on all sides (0 offset)
+        border: 1px solid #bc19d9;
+        box-shadow: 0 0 15px rgba(189, 21, 211, 0.2);
         width: 90%; 
         max-width: 750px; 
         text-align: left;

@@ -4,6 +4,10 @@ html {
   scroll-behavior: smooth;
 }
 
+* {
+  cursor: none !important;
+}
+
 :root {
   --background-color: #ffffff;
   --card-background: linear-gradient(45deg,#dcfaf4b6,  #e3e8faa3, #e8dffda8, #cdd5f8a1);

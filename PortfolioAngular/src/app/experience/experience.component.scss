@@ -1,15 +1,17 @@
 .experience-container {
   text-align: center;
   background: var(--background-color);
-  padding: 0rem 1rem;
-  margin-bottom: 5rem;
+  padding: 0 1rem 5rem;
+  background: url('../../assets/About/Bg_2.png') no-repeat center center;
+  background-size: cover;
 
   h2 {
     font-size: 2.5rem;
     background: var(--text-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 3rem;
+    margin: 0 0 3rem;
+    padding: 3rem 0;
     letter-spacing: 2px;
   }
 

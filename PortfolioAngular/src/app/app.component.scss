@@ -3,7 +3,7 @@ header {
   top: 2rem;
   width: 90%;
   max-width: 1360px;
-  margin: 2rem auto;
+  margin: 2rem auto 0;
   z-index: 1000;
   font-family: 'Inter', sans-serif;
   border-radius: 10px 10px 10px 10px;
@@ -193,6 +193,49 @@ header {
       font-size: 0.875rem;
     }
   }  
+
+html, body {
+  cursor: none;
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #8916f5;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: transform 0.1s ease-out, background-color 0.2s;
+  z-index: 9999;
+  /* Optional: a little glow */
+  box-shadow: 0 0 10px rgba(137, 22, 245, 0.5);
+}
+
+.emoji-trail {
+  font-size: 1px !important;
+  filter: hue-rotate(270deg);
+  opacity: 1;
+  animation: fadeOutUp 1s forwards;
+}
+
+@keyframes fadeOutUp {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, -20px);
+  }
+}
+
+.custom-cursor.active {
+  transform: translate(-50%, -50%) scale(1.5);
+  background-color: rgba(137, 22, 245, 0.2);
+}
 
   @media (max-width: 880px) {
     header {
