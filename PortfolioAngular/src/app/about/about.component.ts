@@ -3,6 +3,13 @@ import { Router } from '@angular/router';
 import { trigger, style, transition, animate } from '@angular/animations';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+interface Testimonial {
+  name: string;
+  position: string;
+  date: string;
+  content: string;
+}
+
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
@@ -51,4 +58,13 @@ export class AboutComponent {
   toggleAccordion(): void {
     this.isOpen = !this.isOpen;
   }
+
+  testimonials: Testimonial[] = [
+    {
+      name: 'Yogendranath Gujarathi',
+      position: 'Senior Manager at Accenture',
+      date: 'March 4, 2025',
+      content: `I’m delighted to recommend Anjana Sruthi Ranga. I worked closely with her at Accenture, where she excelled as an Application Developer. Anjana consistently showcased strong analytical skills, creativity, and exceptional talent in application design with meticulous attention to detail. She’s proactive, collaborative, and brings a positive attitude to every team. Anjana’s commitment and talent make her an exceptional candidate for any professional pursuit.`
+    },
+  ];
 }

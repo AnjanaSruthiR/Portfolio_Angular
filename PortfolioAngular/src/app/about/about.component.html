@@ -81,3 +81,19 @@
     </div>
   </div>
 </div>
+
+<div id="testimonials" class="testimonials-container">
+  <h2>Testimonials</h2>
+  <div class="testimonials-wrapper">
+    <div *ngFor="let testimonial of testimonials" class="testimonial-card" @fadeIn>
+      <div class="testimonial-header">
+        <h3>{{ testimonial.name }}</h3>
+        <p class="position">{{ testimonial.position }}</p>
+        <span class="testimonial-date">{{ testimonial.date }}</span>
+      </div>
+      <div class="testimonial-body">
+        <p>{{ testimonial.content }}</p>
+      </div>
+    </div>
+  </div>
+</div>
