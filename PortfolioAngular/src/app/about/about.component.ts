@@ -6,7 +6,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 interface Testimonial {
   name: string;
   position: string;
-  date: string;
   content: string;
 }
 
@@ -63,8 +62,18 @@ export class AboutComponent {
     {
       name: 'Yogendranath Gujarathi',
       position: 'Senior Manager at Accenture',
-      date: 'March 4, 2025',
-      content: `I’m delighted to recommend Anjana Sruthi Ranga. I worked closely with her at Accenture, where she excelled as an Application Developer. Anjana consistently showcased strong analytical skills, creativity, and exceptional talent in application design with meticulous attention to detail. She’s proactive, collaborative, and brings a positive attitude to every team. Anjana’s commitment and talent make her an exceptional candidate for any professional pursuit.`
+      content: `I’m delighted to recommend Anjana Sruthi Ranga. I worked closely with her at Accenture, where she excelled as an Application Developer. 
+
+Anjana consistently showcased strong analytical skills, creativity, and exceptional talent in application design with meticulous attention to detail. She’s proactive, collaborative, and brings a positive attitude to every team. 
+      
+Anjana’s commitment and talent make her an exceptional candidate for any professional pursuit.`
     },
+    {
+      name: 'Praise Shimosha',
+    position: 'Consulting Development Analyst at Accenture',
+    content: `I had the pleasure of working on a project with Anjana for over a year at Accenture, where I served as the business analyst while Anjana was a member of our development team. During our time on the project, Anjana consistently demonstrated exceptional coding skills and the ability to effectively communicate with stakeholders to resolve issues. She excelled in team collaboration and took on the responsibility of leading other junior developers, eventually becoming the lead support developer for our team's project.
+
+On a personal level, Anjana is highly responsible, quick to grasp complex problems, and open to constructive criticism and making necessary changes. Her flexibility in adapting to changing situations is commendable. I would highly recommend Anjana as a great candidate for any role!`
+  },
   ];
 }
