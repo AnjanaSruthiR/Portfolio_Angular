@@ -2,25 +2,21 @@
 <h3>Contact Me!!!</h3>
 <div class="multi-step-container">
     <div class="progress-bar">
-      <!-- Progress Indicator Steps -->
       <div class="step" [class.active]="currentStep >= 1">1</div>
       <div class="step" [class.active]="currentStep >= 2">2</div>
       <div class="step" [class.active]="currentStep >= 3">3</div>
       <div class="step" [class.active]="currentStep >= 4">4</div>
       
-      <!-- Progress Line -->
       <div class="progress" [style.width]="getProgressWidth()"></div>
     </div>
   
     <form (ngSubmit)="onSubmit()" #multiStepForm="ngForm" class="form-content">
-      <!-- Step 1: Welcome -->
       <div *ngIf="currentStep === 1" class="form-step animate-step">
         <h2>Welcome!</h2>
-        <p>I am looking for internships/Full-time Job opportunities. However, if you have any other requests or queries, don't hesitate to contact me on LinkedIn or using the form below. I’ll get back to you as soon as possible!</p>
+        <p>I am looking for internship opportunities. However, if you have any other requests or queries, don't hesitate to contact me on LinkedIn or using the form below. I’ll get back to you as soon as possible!</p>
         <button type="button" class="next-btn" (click)="nextStep()">Get Started</button>
       </div>
   
-      <!-- Step 2: Basic Information -->
       <div *ngIf="currentStep === 2" class="form-step animate-step">
         <h2>Your Information</h2>
         <p>Let’s start with your basic information.</p>
@@ -36,7 +32,6 @@
         <button type="button" class="next-btn" (click)="nextStep()">Next</button>
       </div>
   
-      <!-- Step 3: Personalization -->
       <div *ngIf="currentStep === 3" class="form-step animate-step">
         <h2>Let’s Personalize</h2>
         <p>What’s the purpose of your message?</p>
@@ -48,7 +43,6 @@
         <button type="button" class="next-btn" (click)="nextStep()">Next</button>
       </div>
   
-      <!-- Step 4: Message -->
       <div *ngIf="currentStep === 4" class="form-step animate-step">
         <h2>Message</h2>
         <p>Please provide the details of your inquiry.</p>

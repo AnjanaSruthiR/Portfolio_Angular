@@ -41,7 +41,7 @@ h3 {
       height: 100%;
       background: linear-gradient(90deg, $primary-color, $secondary-color);
       transition: width 0.4s ease;
-      width: 0%; // Default width
+      width: 0%;
       z-index: 1;
     }
 
@@ -60,18 +60,17 @@ h3 {
       transition: background 0.3s ease, color 0.3s ease;
       z-index: 2;
 
-      // Updated for four steps
       &:nth-of-type(1) {
-        left: 0%; // Step 1 at the start
+        left: 0%;
       }
       &:nth-of-type(2) {
-        left: 33.33%; // Step 2
+        left: 33.33%;
       }
       &:nth-of-type(3) {
-        left: 66.66%; // Step 3
+        left: 66.66%;
       }
       &:nth-of-type(4) {
-        left: 100%; // Step 4 at the end
+        left: 100%;
       }
 
       &.active {
@@ -166,7 +165,6 @@ h3 {
   }
 }
 
- // Tablet View (Max width: 1024px)
  @media (max-width: 1024px) {
 
   .multi-step-container {
@@ -174,14 +172,13 @@ h3 {
   }
 
   .progress-bar .step {
-    width: 25px; // Slightly smaller steps for tablets
+    width: 25px;
     height: 25px;
     font-size: 0.9rem;
     top: -10px;
   }
 }
 
-// Mobile View (Max width: 768px)
 @media (max-width: 768px) {
   .multi-step-container {
     margin: 5rem auto;
@@ -192,7 +189,7 @@ h3 {
   }
 
   .progress-bar {
-    height: 4px; // Reduce thickness
+    height: 4px;
     .step {
       width: 20px;
       height: 20px;
@@ -215,7 +212,7 @@ h3 {
   .submit-btn {
     padding: 0.6rem 1.2rem;
     font-size: 0.9rem;
-    width: 90%; // Full-width buttons for better tap experience
+    width: 90%;
     max-width: 250px;
     margin: 0.5rem 1rem;
   }

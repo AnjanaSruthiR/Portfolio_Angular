@@ -18,7 +18,7 @@ import { trigger, style, transition, animate } from '@angular/animations';
 })
 export class ContactFormComponent {
   currentStep = 1;
-  totalSteps = 4; // Updated to reflect the new total steps
+  totalSteps = 4;
   formData = {
     fullName: '',
     email: '',
@@ -55,7 +55,7 @@ export class ContactFormComponent {
       (response: any) => {
         alert('Message sent successfully!');
         this.resetForm();
-        this.currentStep = 1; // Reset to the first step
+        this.currentStep = 1;
       },
       (error) => {
         alert('Failed to send message. Please try again.');
