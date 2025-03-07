@@ -1,11 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { trigger, state, style, transition, animate, query, stagger } from '@angular/animations';
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.scss']
+  styleUrls: ['./projects.component.scss'],
+  animations: [
+    trigger('fadeInProjects', [
+      state('out', style({ opacity: 0, transform: 'translateY(20px)' })),
+      state('in', style({ opacity: 1, transform: 'translateY(0)' })),
+      transition('out => in', animate('1000ms ease-out'))
+    ]),
+    trigger('staggerProjectCards', [
+      transition(':enter', [
+        query('.project-card', [
+          style({ opacity: 0, transform: 'translateY(20px)' }),
+          stagger(200, [
+            animate('800ms ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
+          ])
+        ], { optional: true })
+      ])
+    ])
+  ]
 })
-export class ProjectsComponent {
+export class ProjectsComponent implements AfterViewInit {
+
+  @ViewChild('projectsContainer') projectsContainer!: ElementRef;
+  projectsInView = false;
+
   projects = [
     {
       title: 'Portfolio Website',
@@ -43,4 +65,21 @@ export class ProjectsComponent {
       githubLink: 'https://github.com/AnjanaSruthiR/Car-Rental-System---Database-Management'
     }
   ];
+
+  constructor() { }
+
+  ngAfterViewInit(): void {
+    const options = { threshold: 0.5 };
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          this.projectsInView = true;
+        }
+      });
+    }, options);
+
+    if (this.projectsContainer) {
+      observer.observe(this.projectsContainer.nativeElement);
+    }
+  }
 }

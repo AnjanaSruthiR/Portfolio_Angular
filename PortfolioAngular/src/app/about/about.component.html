@@ -1,14 +1,14 @@
 <div id="about" class="about-container">
-  <section class="intro" @fadeIn>
+  <section class="intro" #introSection [@fadeInState]="introInView ? 'in' : 'out'">
     <div class="intro-content">
-      <div class="bubble-image-container">
-        <img src="./assets/About/Profile_Photo.JPG" alt="Profile Image" class="bubble-image" />
+      <div class="bubble-image-container" [@fadeInState]="introInView ? 'in' : 'out'">
+        <img src="./assets/About/Profile_Photo.jpg" alt="Profile Image" class="bubble-image" />
       </div>
       <div class="intro-text">
         <h1>Hi! I’m Anjana Sruthi</h1>
         <h2>I design secure, scalable, and interactive cutting-edge applications.</h2>
-        <p>I excel at identifying challenges, streamlining processes, and delivering user-centric solutions that drive
-          efficiency.
+        <p>
+          I excel at identifying challenges, streamlining processes, and delivering user-centric solutions that drive efficiency.
           A fun fact about me is, I love dinosaurs and never miss a rewatch of Jurassic Park!
         </p>
         <div class="social-links">
@@ -30,35 +30,25 @@
   </section>
 </div>
 
-<div id="what-i-do" class="what-i-do">
-  <h1>My Services</h1>
-  <div class="services">
-    <div class="service-card">
-      <i class="fas fa-laptop-code"></i>
-      <h3>Software Development</h3>
-      <p>I build responsive, user-centric apps with modern frameworks, blending innovative design and robust code for intuitive digital experiences.</p>
-    </div>
-    <div class="service-card">
-      <i class="fas fa-shield-alt"></i>
-      <h3>Security Engineering</h3>
-      <p>I design scalable IAM solutions with Okta-based SSO/MFA, ensuring secure data and seamless access.</p>
-    </div>
-    <div class="service-card">
-      <i class="fas fa-globe"></i>
-      <h3>Web Development</h3>
-      <p>I build dynamic, high-performance web apps with modern frameworks, exceptional UI/UX, and responsive design for robust, captivating solutions.</p>
+<div id="what-i-do" class="what-i-do" #servicesSection>
+  <h1 [@fadeInState]="servicesInView ? 'in' : 'out'">My Services</h1>
+  <div class="services" *ngIf="servicesInView" @staggerServiceCards>
+    <div class="service-card" *ngFor="let service of services">
+      <i [class]="service.icon"></i>
+      <h3>{{ service.title }}</h3>
+      <p>{{ service.description }}</p>
     </div>
   </div>
 </div>
 
-<div id="education-container" class="education-container">
+<div id="education-container" class="education-container" #accordionSection>
   <div class="accordion-item" [class.active]="isOpen">
     <div class="accordion-header" (click)="toggleAccordion()">
       <i class="fas fa-graduation-cap accordion-icon-left"></i>      
       <span class="header-text">Education</span>
       <span class="accordion-icon">{{ isOpen ? '-' : '+' }}</span>
     </div>
-    <div class="accordion-content">
+    <div class="accordion-content" [@accordionAnimation]="isOpen ? 'open' : 'closed'">
       <div class="education-grid">
         <div *ngFor="let edu of educationList" class="education-card">
           <div class="card-header">
@@ -81,12 +71,12 @@
   </div>
 </div>
 
-<div id="testimonials" class="testimonials-container">
-  <h2>Testimonials</h2>
-  <div class="testimonials-wrapper">
-    <div *ngFor="let testimonial of testimonials" class="testimonial-card" @fadeIn>
+<div id="testimonials" class="testimonials-container" #testimonialsSection>
+  <h2 [@fadeInState]="testimonialsInView ? 'in' : 'out'">Testimonials</h2>
+  <div class="testimonials-wrapper" *ngIf="testimonialsInView">
+    <div *ngFor="let testimonial of testimonials" class="testimonial-card" @testimonialAnimation>
       <div class="testimonial-header">
-        <h3>{{ testimonial.name }}</h3>
+        <h4>{{ testimonial.name }}</h4>
         <p class="position">{{ testimonial.position }}</p>
       </div>
       <div class="testimonial-body">

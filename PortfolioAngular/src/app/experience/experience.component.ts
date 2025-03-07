@@ -1,11 +1,33 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { trigger, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-experience',
   templateUrl: './experience.component.html',
-  styleUrls: ['./experience.component.scss']
+  styleUrls: ['./experience.component.scss'],
+  animations: [
+    // Scale Bounce for desktop cards:
+    trigger('scaleBounce', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'scale(0.8)' }),
+        animate('800ms cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+          style({ opacity: 1, transform: 'scale(1)' }))
+      ])
+    ]),
+    // Flip Animation for mobile cards:
+    trigger('flipAnimation', [
+      transition(':enter', [
+        style({ transform: 'rotateY(-180deg)', opacity: 0 }),
+        animate('600ms ease-out',
+          style({ transform: 'rotateY(0)', opacity: 1 }))
+      ])
+    ])
+  ]
 })
-export class ExperienceComponent {
+export class ExperienceComponent implements AfterViewInit {
+  @ViewChild('experienceContainer') experienceContainer!: ElementRef;
+  experiencesInView = false;
+
   experienceList = [
     {
       title: "APPLICATION DEVELOPER",
@@ -33,5 +55,23 @@ export class ExperienceComponent {
     window.addEventListener('resize', () => {
       this.isMobile = window.innerWidth <= 767;
     });
+  }
+
+  ngAfterViewInit() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            this.experiencesInView = true;
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 } 
+    );
+
+    if (this.experienceContainer) {
+      observer.observe(this.experienceContainer.nativeElement);
+    }
   }
 }

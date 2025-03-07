@@ -1,12 +1,13 @@
-<div class="experience-container">
+<div class="experience-container" #experienceContainer>
   <h2>My Professional Experience</h2>
-  <div class="timeline">
+  <!-- Render timeline only when experiencesInView is true -->
+  <div class="timeline" *ngIf="experiencesInView">
     <div *ngFor="let job of experienceList" class="timeline-item">
       <div class="timeline-dot"></div>
       <div class="timeline-content">
-
         <ng-container *ngIf="isMobile; else desktopCard">
-          <div class="card flip-card" (click)="job.isFlipped = !job.isFlipped" [ngClass]="{'flipped': job.isFlipped}">
+          <!-- Mobile flip card with flip animation -->
+          <div class="card flip-card" (click)="job.isFlipped = !job.isFlipped" [ngClass]="{'flipped': job.isFlipped}" @flipAnimation>
             <div class="card-inner">
               <div class="card-front">
                 <div class="card-header">
@@ -28,10 +29,11 @@
               </div>
             </div>
           </div>
-        </ng-container>        
+        </ng-container>
 
         <ng-template #desktopCard>
-          <div class="card">
+          <!-- Desktop card with scale bounce animation -->
+          <div class="card" @scaleBounce>
             <div class="card-header">
               <div class="company-info">            
                 <img [src]="job.logo" alt="{{ job.company }} Logo" class="company-logo" />

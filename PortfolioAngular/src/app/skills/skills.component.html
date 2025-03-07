@@ -1,9 +1,9 @@
-<div class="skills-section">
+<div class="skills-section" #skillsSection [@fadeInSkills]="skillsInView ? 'in' : 'out'">
   <h2>My Skills</h2>
   <div class="skills-grid">
     <div *ngFor="let category of skills" class="skill-category">
       <h3>{{ category.name }}</h3>
-      <div class="skill-items">
+      <div class="skill-items" @staggerSkillItems>
         <div class="skill-item" *ngFor="let skill of category.items">
           <img *ngIf="skill.icon.includes('assets')" [src]="skill.icon" [alt]="skill.name" class="skill-icon">
           <i *ngIf="!skill.icon.includes('assets')" class="devicon-{{ skill.icon }} colored skill-icon"></i>

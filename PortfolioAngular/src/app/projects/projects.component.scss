@@ -31,12 +31,7 @@
     width: 100%;
     text-decoration: none;
     color: inherit;
-
-    &:hover {
-      transform: translateY(-10px);
-      box-shadow: 5px 10px 15px #595858;
-      border-radius: 10px;
-    }
+    position: relative;
 
     .project-image {
       width: 100%;
@@ -59,6 +54,24 @@
 
     .project-info {
       padding: 1rem;
+      position: relative; 
+
+      .github-link {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        font-size: 1.2rem;
+        background-color: #fbf0ff;
+        color: #ae04fd;
+        padding: 0.3rem 0.6rem;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-weight: 500;        transition: color 0.3s ease;
+  
+        &:hover {
+          color: #007bff;
+        }
+      }
 
       h3 {
         margin: 0 0 0.5rem;
@@ -103,7 +116,7 @@
   // Mobile View (Max width: 768px)
   @media (max-width: 767px) {
     h2 {
-      font-size: 2rem; // Reduce heading size for mobile
+      font-size: 2rem;
     }
 
     .projects-flex {
@@ -117,12 +130,12 @@
     }
 
     .project-image {
-      height: 200px; // Reduce height for better mobile fit
+      height: 200px;
     }
 
     .project-info {
       h3 {
-        font-size: 1.3rem; // Adjust font size for mobile readability
+        font-size: 1.3rem;
       }
 
       p {

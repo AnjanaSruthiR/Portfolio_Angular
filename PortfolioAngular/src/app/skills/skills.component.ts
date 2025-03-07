@@ -1,17 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { trigger, state, style, transition, animate, query, stagger } from '@angular/animations';
 
 @Component({
   selector: 'app-skills',
   templateUrl: './skills.component.html',
-  styleUrls: ['./skills.component.scss']
+  styleUrls: ['./skills.component.scss'],
+  animations: [
+    // Overall fade in and slide up for the skills section.
+    trigger('fadeInSkills', [
+      state('out', style({ opacity: 0, transform: 'translateY(20px)' })),
+      state('in', style({ opacity: 1, transform: 'translateY(0)' })),
+      transition('out => in', animate('1000ms ease-out'))
+    ]),
+    // Stagger animation for each skill item.
+    trigger('staggerSkillItems', [
+      transition(':enter', [
+        query('.skill-item', [
+          style({ opacity: 0, transform: 'translateY(20px)' }),
+          stagger(100, [
+            animate('600ms ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
+          ])
+        ], { optional: true })
+      ])
+    ])
+  ]
 })
-export class SkillsComponent {
+export class SkillsComponent implements OnInit, AfterViewInit {
+
+  skillsInView = false;
+  @ViewChild('skillsSection') skillsSection!: ElementRef;
+
   skills = [
     {
       name: 'Programming Languages',
       items: [
         { name: 'JavaScript', icon: 'javascript-plain' },
-        { name: 'Typescript', icon: 'typescript-plain' },
+        { name: 'TypeScript', icon: 'typescript-plain' },
         { name: 'Java', icon: 'java-plain' }
       ]
     },
@@ -30,7 +54,7 @@ export class SkillsComponent {
       name: 'Backend Development',
       items: [
         { name: 'Node.js', icon: 'nodejs-plain' },
-        { name: 'ExpressJS', icon: 'express-original' }
+        { name: 'Express.js', icon: 'express-original' }
       ]
     },
     {
@@ -59,4 +83,24 @@ export class SkillsComponent {
       ]
     }
   ];
+
+  constructor() { }
+
+  ngOnInit(): void { }
+
+  ngAfterViewInit(): void {
+    const options = { threshold: 0.2 };
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          this.skillsInView = true;
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+
+    if (this.skillsSection) {
+      observer.observe(this.skillsSection.nativeElement);
+    }
+  }
 }
