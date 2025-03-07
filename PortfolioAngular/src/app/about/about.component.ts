@@ -15,7 +15,7 @@ interface Testimonial {
     trigger('fadeInState', [
       state('out', style({ opacity: 0 })),
       state('in', style({ opacity: 1 })),
-      transition('out => in', animate('300ms ease-in'))
+      transition('out => in', animate('500ms ease-in'))
     ]),
     trigger('staggerServiceCards', [
       transition(':enter', [
@@ -35,7 +35,7 @@ interface Testimonial {
     trigger('testimonialAnimation', [
       transition(':enter', [
         style({ opacity: 0, transform: 'translateY(20px) scale(0.95)' }),
-        animate('1000ms cubic-bezier(0.68, -0.55, 0.265, 1.55)', 
+        animate('2000ms cubic-bezier(0.68, -0.55, 0.265, 1.55)', 
           style({ opacity: 1, transform: 'translateY(0) scale(1)' }))
       ])
     ])
