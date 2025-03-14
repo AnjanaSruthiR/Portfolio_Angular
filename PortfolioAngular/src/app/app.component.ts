@@ -101,37 +101,5 @@ export class AppComponent implements OnInit {
       this.customCursor.style.top = `${event.clientY}px`;
       this.customCursor.style.left = `${event.clientX}px`;
     }
-
-    // Throttle emoji spawning
-    const now = Date.now();
-    const threshold = 100; // in milliseconds
-    if (now - this.lastEmojiSpawnTime > threshold) {
-      this.spawnEmojiTrail(event.clientX, event.clientY);
-      this.lastEmojiSpawnTime = now;
-    }
-  }
-
-  spawnEmojiTrail(x: number, y: number) {
-    // List of emojis to choose from
-    const emojis = ['💜', '🍓', '🌺', '💜', '🍒', '🎈'];
-    const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
-
-    const emoji = document.createElement('span');
-    emoji.classList.add('emoji-trail');
-    emoji.innerText = randomEmoji;
-
-    // Position the element at the cursor position
-    emoji.style.position = 'fixed';
-    emoji.style.left = `${x}px`;
-    emoji.style.top = `${y}px`;
-    emoji.style.pointerEvents = 'none';
-
-    // Append to the document
-    document.body.appendChild(emoji);
-
-    // Remove the emoji after the animation finishes (1 second)
-    setTimeout(() => {
-      emoji.remove();
-    }, 1000);
   }
 }
