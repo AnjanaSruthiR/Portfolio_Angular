@@ -1,10 +1,10 @@
- 🚀 Anjana Sruthi Ranga - Personal Portfolio
+<H1>🚀 Anjana Sruthi Ranga - Personal Portfolio</H1>
 
- 🌟 Overview
+ ## 🌟 Overview
 
 This is a fully responsive personal portfolio website built using Angular, SCSS, and TypeScript. It showcases my professional experience, education, skills, and projects while providing an interactive multi-step contact form for inquiries.
 
- 🛠 Tech Stack
+## 🛠 Tech Stack
  Frontend:
 - Angular 15 (Single Page Application)
 - TypeScript (For component logic)
@@ -15,7 +15,7 @@ This is a fully responsive personal portfolio website built using Angular, SCSS,
  Backend:
 Node.js & Express (Handles contact form submissions)
 
- ✨ Features
+## ✨ Features
  
  1️⃣ Home Page
 - Starry animated background
@@ -27,7 +27,7 @@ Node.js & Express (Handles contact form submissions)
 - Social media links (LinkedIn, GitHub, etc.)
 - 'What I Do' section showcasing expertise
 
- 3️⃣ Education Page
+ 3️⃣ Education in About Page
 - Displays academic qualifications dynamically
 - Course details and CGPA included
 - Fully responsive design
@@ -53,7 +53,7 @@ Node.js & Express (Handles contact form submissions)
 - Validation for form fields
 - Responsive button interactions
 
- 🖥️ Installation & Setup
+## 🖥️ Installation & Setup
  
  1️⃣ Clone the Repository
 git clone https://github.com/AnjanaSruthiR/portfolio-angular.git
@@ -66,12 +66,12 @@ npm install
 ng serve
 
 
- 🎨 Styling & Responsiveness
+## 🎨 Styling & Responsiveness
 - Fully mobile-friendly and tablet-friendly
 - SCSS Media Queries for different screen sizes
 - Grid and Flexbox Layouts for alignment
 
- 👤 Author
+## 👤 Author
 - Anjana Sruthi Ranga
 - GitHub: [AnjanaSruthiR](https://github.com/AnjanaSruthiR)
 - LinkedIn: [Anjana Sruthi Ranga](https://www.linkedin.com/in/anjana-sruthi-ranga-164148211/)
