@@ -1,6 +1,7 @@
  🚀 Anjana Sruthi Ranga - Personal Portfolio
 
  🌟 Overview
+
 This is a fully responsive personal portfolio website built using Angular, SCSS, and TypeScript. It showcases my professional experience, education, skills, and projects while providing an interactive multi-step contact form for inquiries.
 
  🛠 Tech Stack
