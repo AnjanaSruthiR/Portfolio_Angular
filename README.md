@@ -56,14 +56,14 @@ Node.js & Express (Handles contact form submissions)
 ## 🖥️ Installation & Setup
  
  1️⃣ Clone the Repository
-git clone https://github.com/AnjanaSruthiR/portfolio-angular.git
-cd portfolio-angular
+- git clone https://github.com/AnjanaSruthiR/portfolio-angular.git
+- cd portfolio-angular
 
  2️⃣ Install Dependencies
-npm install
+- npm install
 
  3️⃣ Run the Development Server
-ng serve
+- ng serve
 
 
 ## 🎨 Styling & Responsiveness
