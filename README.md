@@ -18,7 +18,6 @@ Node.js & Express (Handles contact form submissions)
 ## ✨ Features
  
  1️⃣ Home Page
-- Starry animated background
 - Dynamic text effect
 - Navigation links to different sections
 
@@ -26,6 +25,7 @@ Node.js & Express (Handles contact form submissions)
 - Profile picture & introduction
 - Social media links (LinkedIn, GitHub, etc.)
 - 'What I Do' section showcasing expertise
+- 'Testimonials' section showcasing Recommendations
 
  3️⃣ Education in About Page
 - Displays academic qualifications dynamically
